@@ -6,6 +6,7 @@ const Signup = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   console.log(API)
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,12 +15,14 @@ const Signup = () => {
         username,
         password,
         email,
+        phone,
       });
       console.log(response.data);
       alert('Signup successful!');
       setUsername('');
       setPassword('');
       setEmail('');
+      setPhone('');
     } catch (error) {
       console.error(error);
       alert('Signup failed!');
@@ -55,6 +58,15 @@ const Signup = () => {
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor="phone">Phone:</label>
+          <input
+            type="phone"
+            id="phone"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
           />
         </div>
         <button type="submit">Signup</button>

@@ -5,6 +5,8 @@ import API from './api';
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -13,6 +15,8 @@ function Login() {
         params: {
           username: username,
           password: password,
+          email:email,
+          phone:phone,
         },
       });
       console.log(response.data);
@@ -41,6 +45,24 @@ function Login() {
             id="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor="phone">phone:</label>
+          <input
+            type="phone"
+            id="phone"
+            value={phone}
+            onChange={(event) => setPhone(event.target.value)}
           />
         </div>
         <button type="submit">Login</button>
